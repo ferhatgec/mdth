@@ -77,6 +77,8 @@ Mdth::is_token(std::string &data) {
 	} else if(is_list == true) {
 			data = "</ul>";
 			is_list = false;
+	} else {
+		data = "<p>" + data + "</p>";
 	}
 	
 	return data;
