@@ -1,3 +1,3 @@
 #!/bin/sh
 
-c++ -std=c++17 Mdth.cpp -o mdth
+c++ -I./include/ -I./libraries/ -std=c++17 src/Mdth.cpp -o mdth

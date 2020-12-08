@@ -9,8 +9,8 @@
 #include <string>
 #include <fstream>
 
-#include "Mdth.hpp"
-#include "libraries/StringTools.hpp"
+#include <Mdth.hpp>
+#include <StringTools.hpp>
 
 static bool is_list = false;
 
