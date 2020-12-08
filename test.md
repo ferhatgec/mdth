@@ -1,7 +1,8 @@
 #      Test
 ##     Test
 ###    Test
-![Scrift](resources/codefad_64.png)
+![CodeFad](resources/codefad_64.png)
+**mdth**
 ~~hello world~~
 * Hi everyone
 * What's up?

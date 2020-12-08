@@ -22,7 +22,7 @@ std::string
 Mdth::is_token(std::string &data) {
 	unsigned i = 0;
 	
-	if(strstr(data.c_str(), "#")) {
+	if(stringtools::Find(data, "#")) {
 		data = stringtools::ltrim(data);
 
 		if(data[0] == '#') {
@@ -39,7 +39,7 @@ Mdth::is_token(std::string &data) {
 				data = "<h" + std::to_string(i) + "> " + data+ " </h" + std::to_string(i) + ">";   
 			}
 		}
-	} else if(strstr(data.c_str(), "*")) {
+	} else if(stringtools::Find(data, "*")) {
 		data = stringtools::ltrim(data);
 		
 		if(data[0] == '*' && data[1] == ' ') {
@@ -51,20 +51,24 @@ Mdth::is_token(std::string &data) {
 			} else {
 				data = "<li><p>" + data + "</p></li>";
 			}
+		} else if(data[0] == '*' && data[1] == '*') {
+			data = stringtools::Between(data, "**", "**");
+		
+			data = "<p><strong>" + data + "</strong></p>";
 		} else if(is_list == true) {
 			data = "</ul>";
 			is_list = false;
 		} else {
 			data = "<p>" + data + "</p>";	
 		}
-	} else if(strstr(data.c_str(), "~~")) {
+	} else if(stringtools::Find(data, "~~")) {
 		data = stringtools::ltrim(data);
 		
 		if(data[0] == '~' && data[1] == '~') {
 			data = stringtools::Between(data, "~~", "~~");
 			data = "<p><del>" + data + "</del></p>";
 		}
-	} else if(strstr(data.c_str(), "!")) {
+	} else if(stringtools::Find(data, "!")) {
 		data = stringtools::ltrim(data);
 		
 		if(data[0] == '!') {
