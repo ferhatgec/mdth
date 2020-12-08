@@ -64,6 +64,12 @@ Mdth::is_token(std::string &data) {
 			data = stringtools::Between(data, "~~", "~~");
 			data = "<p><del>" + data + "</del></p>";
 		}
+	} else if(strstr(data.c_str(), "!")) {
+		data = stringtools::ltrim(data);
+		
+		if(data[0] == '!') {
+			data = "<p><img src=\"" + stringtools::Between(data, "(", ")") + "\" alt=\"" + stringtools::Between(data, "![", "]") + "\"></p>";
+		}
 	} else if(is_list == true) {
 			data = "</ul>";
 			is_list = false;
