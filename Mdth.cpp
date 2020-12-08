@@ -57,6 +57,13 @@ Mdth::is_token(std::string &data) {
 		} else {
 			data = "<p>" + data + "</p>";	
 		}
+	} else if(strstr(data.c_str(), "~~")) {
+		data = stringtools::ltrim(data);
+		
+		if(data[0] == '~' && data[1] == '~') {
+			data = stringtools::Between(data, "~~", "~~");
+			data = "<p><del>" + data + "</del></p>";
+		}
 	} else if(is_list == true) {
 			data = "</ul>";
 			is_list = false;
